@@ -41,13 +41,13 @@ Bicicleta.removeById = function(aBici){
         }
     }
 }
-
+/*
 // Creación de dos instancias de bicicletas y adición al array allBicis.
 var a = new Bicicleta(1, 'rojo', 'urbana', [4.587067826932398, -74.16080334293196]);
 var b =  new Bicicleta(2, 'blanca', 'urbana', [4.580993341635696, -74.15413000710157]);
 
 Bicicleta.add(a);
 Bicicleta.add(b);
-
+*/
 // Exportación del constructor Bicicleta para su uso en otros archivos.
 module.exports = Bicicleta;
