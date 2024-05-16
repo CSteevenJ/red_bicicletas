@@ -12,9 +12,17 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var bicicletasRouter = require('./routes/bicicletas');
 var bicicletasAPIRouter = require('./routes/api/bicicletas');
+var usuariosAPIRouter = require('./routes/api/usuarios');
 
 // Crea la aplicación Express.
 var app = express();
+
+var mongoose = require('mongoose');
+var mongoDB = 'mongodb://localhost/red_bicicletas';
+mongoose.connect(mongoDB, {useNewUrlParser: true});
+mongoose.Promise = global.Promise;
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error: '));
 
 // Configura el motor de vistas y el directorio de vistas.
 app.set('views', path.join(__dirname, 'views'));
@@ -32,6 +40,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/bicicletas', bicicletasRouter);
 app.use('/api/bicicletas', bicicletasAPIRouter);
+app.use('/api/usuarios', usuariosAPIRouter);
 
 // Middleware para manejar errores 404 (no encontrado).
 app.use(function(req, res, next) {

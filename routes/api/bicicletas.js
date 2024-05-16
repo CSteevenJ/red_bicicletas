@@ -7,6 +7,7 @@ var bicicletaController = require('../../controllers/api/bicicletaControllerAPI'
 
 router.get('/', bicicletaController.bicicleta_list); // Define la ruta para obtener la lista de bicicletas.
 router.post('/create', bicicletaController.bicicleta_create); // Define la ruta para crear una nueva bicicleta.
+router.put('/update/:id', bicicletaController.bicicleta_update);
 router.delete('/delete', bicicletaController.bicicleta_delete); // Define la ruta para eliminar una bicicleta existente.
 
 // Exporta el enrutador para que pueda ser utilizado en otras partes de la aplicación.

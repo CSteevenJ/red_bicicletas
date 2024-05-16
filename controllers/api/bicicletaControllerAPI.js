@@ -17,6 +17,15 @@ exports.bicicleta_create = function(req, res){
     });
 }
 
+exports.bicicleta_update = function(req, res){
+    var bici = Bicicleta.findById(req.params.id);
+    bici.color = req.body.color;
+    bici.modelo = req.body.modelo;
+    res.status(200).json({
+        bicicleta: bici
+    });
+}
+
 exports.bicicleta_delete = function(req, res){
     Bicicleta.removeById(req.body.id);
 
